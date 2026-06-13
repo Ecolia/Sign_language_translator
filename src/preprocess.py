@@ -3,7 +3,7 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 IMG_SIZE = (64, 64)
 BATCH_SIZE = 32
 
-DATASET_PATH = "dataset/asl_alphabet_train"
+DATASET_PATH = "dataset/asl_alphabet_train/asl_alphabet_train"
 
 datagen = ImageDataGenerator(
     rescale=1.0 / 255,
