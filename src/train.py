@@ -50,6 +50,6 @@ model.fit(
 
 os.makedirs("models", exist_ok=True)
 
-model.save("models/sign_language_model.h5")
+model.save("models/sign_language_model_v2.h5")
 
 print("Model saved successfully.")
