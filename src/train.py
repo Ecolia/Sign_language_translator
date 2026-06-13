@@ -4,6 +4,7 @@ from tensorflow.keras.layers import Flatten, Dense, Dropout
 from tensorflow.keras.optimizers import Adam
 from preprocess import train_generator, val_generator, NUM_CLASSES
 import os
+from tensorflow.keras.callbacks import EarlyStopping
 
 model = Sequential()
 
@@ -34,10 +35,17 @@ model.compile(
 
 model.summary()
 
+early_stop = EarlyStopping(
+    monitor='val_loss',
+    patience=3,
+    restore_best_weights=True
+)
+
 model.fit(
     train_generator,
     validation_data=val_generator,
-    epochs=10
+    epochs=20,
+    callbacks=[early_stop]
 )
 
 os.makedirs("models", exist_ok=True)
